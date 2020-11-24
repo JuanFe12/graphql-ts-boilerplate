@@ -1,3 +1,6 @@
+
+# import Error from "../../shared.graphql"
+
 type Query {
   bye: String
 }

@@ -10,6 +10,7 @@ import { createTypeormConn } from "./utils/createTypeormConn";
 export const startServer = async () => {
   const schemas: GraphQLSchema[] = [];
   const folders = fs.readdirSync(path.join(__dirname, "./modules"));
+
   folders.forEach(folder => {
     const { resolvers } = require(`./modules/${folder}/resolvers`);
     const typeDefs = importSchema(
