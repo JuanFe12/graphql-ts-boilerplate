@@ -10,8 +10,7 @@ import { createTypeormConn } from "./utils/createTypeormConn";
 export const startServer = async () => {
   const schemas: GraphQLSchema[] = [];
   const folders = fs.readdirSync(path.join(__dirname, "./modules"));
-
-  folders.forEach(folder => {
+  folders.forEach((folder) => {
     const { resolvers } = require(`./modules/${folder}/resolvers`);
     const typeDefs = importSchema(
       path.join(__dirname, `./modules/${folder}/schema.graphql`)
@@ -22,7 +21,7 @@ export const startServer = async () => {
   const server = new GraphQLServer({ schema: mergeSchemas({ schemas }) });
   await createTypeormConn();
   const app = await server.start({
-    port: process.env.NODE_ENV === "test" ? 0 : 4000
+    port: process.env.NODE_ENV === "test" ? 0 : 4000,
   });
   console.log("Server is running on localhost:4000");
 

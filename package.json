@@ -7,6 +7,7 @@
       "@types/jest": "^26.0.15",
       "@types/node": "^8.0.29",
       "@types/uuid": "^8.3.0",
+      "@types/yup": "^0.29.9",
       "gql2ts": "^1.10.1",
       "jest": "^26.6.3",
       "nodemon": "^2.0.6",
@@ -29,11 +30,12 @@
       "reflect-metadata": "^0.1.13",
       "superagent": "^6.1.0",
       "typeorm": "0.2.25",
-      "uuid": "^8.3.1"
+      "uuid": "^8.3.1",
+      "yup": "^0.31.0"
    },
    "scripts": {
-      "start": "SET NODE_ENV=development & nodemon --exec ts-node src/index.ts",
-      "test": "SET NODE_ENV=test & jest --forceExit",
+      "start": "nodemon --exec ts-node src/index.ts",
+      "test": "jest --forceExit",
       "gen-schema-types": "gql2ts src/schema.graphql -o src/types/graphql.d-ts"
    },
    "jest": {
